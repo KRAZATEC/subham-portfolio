@@ -1,0 +1,689 @@
+Create a world-class futuristic AI-powered portfolio website called:
+
+“SUBHAM OS — AI SECURITY COMMAND CENTER”
+
+The website must NOT feel like a normal portfolio.
+It should feel like:
+
+an AI Operating System
+a Cybersecurity SOC Platform
+a futuristic AI research lab
+a command center
+a live intelligent infrastructure platform
+
+The portfolio should combine:
+
+AI dashboard aesthetics
+operating system interactions
+neural network visualizations
+cyberpunk terminal experiences
+draggable desktop windows
+AI assistant interactions
+holographic UI
+enterprise-grade professionalism
+
+The entire experience should be cinematic, immersive, interactive, smooth, futuristic, highly optimized, and recruiter-focused.
+
+━━━━━━━━━━━━━━━━━━━━
+TECH STACK
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+
+Next.js 15
+React
+Tailwind CSS
+Framer Motion
+React Three Fiber
+Three.js
+GSAP
+shadcn/ui
+TypeScript
+
+Optional:
+
+Zustand
+Lenis smooth scrolling
+Aceternity UI
+React Query
+
+Deployment optimized for:
+
+Vercel
+
+━━━━━━━━━━━━━━━━━━━━
+OVERALL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The website should behave like a futuristic AI Operating System.
+
+When entering:
+
+boot sequence animation appears
+AI system initialization starts
+loading modules animation
+neural network initialization
+system diagnostics
+holographic startup sequence
+subtle futuristic sound effects optional
+
+Then transition into:
+
+“SUBHAM OS”
+
+Subtitle:
+
+AI Infrastructure Engineer • Generative AI • MLOps • Cybersecurity
+
+Main system status:
+
+SYSTEM ONLINE
+AI MODULES ACTIVE
+SECURITY STATUS SECURE
+LLM NODES CONNECTED
+DEPLOYMENT STATUS ACTIVE
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Combine:
+
+Cyberpunk
+Apple-level smoothness
+Enterprise AI dashboard
+Security Operations Center
+Futuristic holographic interfaces
+Neural network aesthetics
+
+Theme:
+
+dark premium background
+deep black
+navy gradients
+neon blue accents
+cyan glows
+purple highlights
+subtle green security indicators
+
+Effects:
+
+glassmorphism
+glowing borders
+holographic cards
+animated grid background
+moving particles
+neural connections
+AI pulse effects
+animated scanlines
+subtle matrix effects
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN WEBSITE CONCEPT
+━━━━━━━━━━━━━━━━━━━━
+
+The portfolio is a fully interactive AI operating system.
+
+The user can:
+
+open apps
+drag windows
+use terminal commands
+launch AI modules
+inspect projects like systems
+navigate through neural networks
+explore project architectures interactively
+
+━━━━━━━━━━━━━━━━━━━━
+LANDING PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Hero section should feel like:
+AI Command Center + Security Operations Dashboard.
+
+Include:
+
+animated AI globe
+holographic grid
+moving particles
+floating system metrics
+futuristic typography
+animated neural links
+
+Center:
+
+SUBHAM PATRO
+
+Role:
+
+AI/ML Engineer — Generative AI — Cybersecurity — MLOps
+
+Animated typing effects:
+
+Building intelligent systems...
+Deploying scalable AI...
+Engineering secure infrastructures...
+Designing autonomous workflows...
+
+Buttons:
+
+Launch System
+Explore Projects
+Open Terminal
+View Architecture
+
+Add:
+
+animated GPU graphs
+fake AI telemetry
+deployment activity logs
+live model stats
+real-time AI node connections
+
+━━━━━━━━━━━━━━━━━━━━
+AI OPERATING SYSTEM MODE
+━━━━━━━━━━━━━━━━━━━━
+
+Main experience should resemble a futuristic desktop OS.
+
+Features:
+
+draggable windows
+minimizable panels
+expandable applications
+floating widgets
+dock navigation
+animated app launching
+
+Apps:
+
+NeoStats.exe
+AISOC.exe
+HealthAI.exe
+PIIShield.exe
+NeuralLab.exe
+ResumeArchive.exe
+ThreatCenter.exe
+
+Each app opens into immersive project experiences.
+
+━━━━━━━━━━━━━━━━━━━━
+TERMINAL MODE
+━━━━━━━━━━━━━━━━━━━━
+
+Create a fully functional cyberpunk terminal.
+
+Commands:
+
+about
+projects
+skills
+certifications
+deploy
+launch ai-nids
+open neo-stats
+contact
+architecture
+initialize system
+
+Features:
+
+terminal typing animations
+command history
+glitch transitions
+fake system logs
+matrix rain effects
+hidden easter eggs
+
+Example:
+
+sudo reveal-secret-project
+
+opens hidden AI experimental project.
+
+━━━━━━━━━━━━━━━━━━━━
+NEURAL NETWORK UNIVERSE
+━━━━━━━━━━━━━━━━━━━━
+
+Create a 3D neural universe section.
+
+User appears at center node.
+
+Connected neural nodes represent projects:
+
+Neo-Stats
+AI NIDS
+Healthcare-Agent
+AI SOC Platform
+PII Detector
+Voice Assistant
+Customer Support Agent
+
+Each node:
+
+pulses with AI energy
+connected through animated neural pathways
+clickable
+zoomable
+opens detailed immersive project environments
+
+Use:
+
+Three.js
+React Three Fiber
+
+━━━━━━━━━━━━━━━━━━━━
+PROJECT SHOWCASE
+━━━━━━━━━━━━━━━━━━━━
+
+Each project must feel like a deployed AI product.
+
+NOT cards only.
+
+Each project gets:
+
+cinematic intro
+architecture animation
+live metrics
+deployment diagrams
+interactive workflow visualization
+tech stack display
+GitHub integration
+screenshots
+animated pipelines
+feature panels
+AI reasoning visualizations
+
+━━━━━━━━━━━━━━━━━━━━
+PROJECTS TO INCLUDE
+━━━━━━━━━━━━━━━━━━━━
+
+Neo-Stats
+Theme:
+Multi-LLM intelligence hub
+
+Features:
+
+RAG flow visualization
+vector DB animation
+LLM orchestration map
+retrieval pipeline animation
+
+━━━━━━━━━━━━━━━━━━━━
+
+AI NIDS
+Theme:
+Cybersecurity threat monitoring
+
+Features:
+
+live attack map
+anomaly detection charts
+packet stream simulation
+intrusion alerts
+threat classification animations
+
+━━━━━━━━━━━━━━━━━━━━
+
+Presidio PII Detector
+Theme:
+secure AI compliance system
+
+Features:
+
+live PII redaction demo
+sensitive data masking animation
+API architecture visualization
+
+━━━━━━━━━━━━━━━━━━━━
+
+AI SOC Platform
+Theme:
+futuristic security operations center
+
+Features:
+
+AI threat dashboard
+SIEM-like interface
+threat intelligence feed
+security heatmaps
+
+━━━━━━━━━━━━━━━━━━━━
+
+Healthcare Agent
+Theme:
+medical intelligence AI
+
+Features:
+
+medical image analysis
+diagnosis workflow
+AI assistant interface
+multimodal visualization
+
+━━━━━━━━━━━━━━━━━━━━
+
+PhisGuard AI
+Theme:
+anti-phishing intelligence system
+
+Features:
+
+URL scanning simulation
+phishing probability meter
+browser security interface
+
+━━━━━━━━━━━━━━━━━━━━
+
+Nova Desktop Voice Assistant
+Theme:
+AI cognitive assistant
+
+Features:
+
+voice visualization
+NLU pipeline
+speech waveform
+orchestration map
+
+━━━━━━━━━━━━━━━━━━━━
+ABOUT SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT use boring paragraphs.
+
+Create:
+
+MEMORY CORE
+
+This section behaves like an AI memory archive.
+
+Include:
+
+interactive timeline
+holographic biography
+educational journey
+evolution of skills
+AI engineer growth journey
+
+Timeline:
+2023 → Foundations
+2024 → AI Systems
+2025 → LLM Engineering
+2026 → Enterprise AI + BFSI + Security
+
+━━━━━━━━━━━━━━━━━━━━
+EXPERIENCE SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Style:
+Mission briefing system.
+
+Companies:
+
+JMR Infotech
+Springer Capital
+
+Each experience shown as:
+
+active mission logs
+deployment reports
+AI system contributions
+enterprise architecture involvement
+
+Add:
+
+animated stats
+scalability metrics
+workflow diagrams
+cloud deployment visuals
+
+━━━━━━━━━━━━━━━━━━━━
+SKILLS SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Rename to:
+
+INTELLIGENCE MATRIX
+
+Visualize skills as:
+
+interconnected AI modules
+holographic tech spheres
+expandable neural clusters
+
+Categories:
+
+AI/ML
+Generative AI
+MLOps
+Cloud
+DevOps
+Security
+Backend
+Databases
+
+Interactive hover reveals:
+
+projects used in
+proficiency
+architecture relevance
+
+━━━━━━━━━━━━━━━━━━━━
+CERTIFICATIONS SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Theme:
+Secure Vault / Credential Archive
+
+Display:
+
+Azure Security Engineer
+Google Cloud Cybersecurity
+IBM AI
+Cloud certifications
+
+Features:
+
+glowing secure cards
+animated verification effects
+certificate unlock interactions
+
+━━━━━━━━━━━━━━━━━━━━
+GITHUB ANALYTICS
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+DEVELOPMENT TELEMETRY
+
+Include:
+
+contribution graph
+coding streaks
+repository intelligence
+language radar charts
+commit activity visualizations
+
+Make it feel like:
+live developer telemetry.
+
+━━━━━━━━━━━━━━━━━━━━
+BLOG / RESEARCH SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Theme:
+
+EXPERIMENT LOGS
+
+Looks like:
+AI research documentation.
+
+Topics:
+
+RAG architectures
+AI security
+LangGraph agents
+MLOps systems
+BFSI AI workflows
+Agentic AI pipelines
+
+━━━━━━━━━━━━━━━━━━━━
+AI ASSISTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Add a built-in AI assistant.
+
+Features:
+
+floating holographic AI orb
+voice assistant optional
+answers questions about:
+projects
+resume
+skills
+experience
+
+Use:
+
+RAG over portfolio data
+
+Example:
+“Tell me about Neo-Stats”
+
+Assistant explains:
+
+architecture
+stack
+reasoning flow
+deployment pipeline
+
+━━━━━━━━━━━━━━━━━━━━
+SPECIAL EFFECTS
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+
+scroll-triggered cinematic animations
+section transitions
+parallax neural effects
+floating particles
+holographic reveals
+AI pulse effects
+smooth inertia scrolling
+animated gradients
+advanced lighting
+dynamic reflections
+
+━━━━━━━━━━━━━━━━━━━━
+3D FEATURES
+━━━━━━━━━━━━━━━━━━━━
+
+Include:
+
+rotating AI core
+interactive holographic globe
+floating neural particles
+3D node systems
+cyberpunk environments
+orbital UI systems
+
+━━━━━━━━━━━━━━━━━━━━
+CONTACT SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Theme:
+
+COMMUNICATION TERMINAL
+
+Features:
+
+futuristic transmission panel
+animated contact form
+encrypted message animation
+signal transmission effect
+
+Include:
+
+GitHub
+LinkedIn
+Email
+Resume download
+
+━━━━━━━━━━━━━━━━━━━━
+MOBILE EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+Must be:
+
+fully responsive
+optimized
+smooth on mobile
+adaptive layouts
+touch interactions
+mobile terminal support
+
+━━━━━━━━━━━━━━━━━━━━
+PERFORMANCE REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Website must:
+
+feel premium
+remain performant
+use lazy loading
+optimize 3D rendering
+maintain smooth FPS
+have clean architecture
+modular reusable components
+
+━━━━━━━━━━━━━━━━━━━━
+ADVANCED FEATURES
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+
+AI-generated background animations
+live system telemetry
+fake deployment pipelines
+real-time node synchronization visuals
+cinematic page transitions
+hidden easter eggs
+AI-generated loading sequences
+futuristic notification system
+
+━━━━━━━━━━━━━━━━━━━━
+RECRUITER PSYCHOLOGY
+━━━━━━━━━━━━━━━━━━━━
+
+The website should make recruiters feel:
+
+this candidate is elite
+technically advanced
+highly creative
+system-level thinker
+enterprise capable
+AI infrastructure engineer
+not a beginner
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT create:
+
+generic portfolio cards
+simplistic layouts
+ordinary developer website
+boring resume pages
+
+Instead create:
+
+immersive AI ecosystem
+cinematic interactive experience
+futuristic intelligent platform
+memorable technical showcase
+visually stunning AI operating system
+
+The final product should feel like:
+“Tony Stark designed an AI engineer portfolio for a cybersecurity and generative AI specialist.”
