@@ -68,10 +68,10 @@ export function HeroSection({ onOpenTerminal }: HeroProps) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-5xl md:text-8xl font-black mb-4 tracking-tight glitch-effect"
-          data-text="SUBHAM PATRO"
+          data-text="T SUBHAM PATRO"
           style={{ fontFamily: "Orbitron, sans-serif" }}
         >
-          <span className="text-white">SUBHAM </span>
+          <span className="text-white">T SUBHAM </span>
           <span className="text-[#00f5ff]" style={{ textShadow: "0 0 30px #00f5ff, 0 0 60px #00f5ff44" }}>
             PATRO
           </span>

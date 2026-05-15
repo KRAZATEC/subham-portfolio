@@ -310,7 +310,7 @@ function WindowContent({ appId, color }: { appId: string; color: string }) {
         <div className="grid grid-cols-2 gap-3">
           <div className="p-3 rounded space-y-1" style={{ background: `${color}08`, border: `1px solid ${color}20` }}>
             <div className="terminal-text text-[9px] text-white/40">IDENTITY</div>
-            <div className="text-sm font-bold" style={{ fontFamily: "Orbitron, sans-serif", color }}>SUBHAM PATRO</div>
+            <div className="text-sm font-bold" style={{ fontFamily: "Orbitron, sans-serif", color }}>{PORTFOLIO_DATA.name}</div>
             <div className="text-white/50 text-[11px]">AI/ML Engineer</div>
           </div>
           <div className="p-3 rounded space-y-1" style={{ background: `${color}08`, border: `1px solid ${color}20` }}>

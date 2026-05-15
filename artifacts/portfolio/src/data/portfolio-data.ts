@@ -1,5 +1,5 @@
 export const PORTFOLIO_DATA = {
-  name: "SUBHAM PATRO",
+  name: "T SUBHAM PATRO",
   title: "AI/ML Engineer — Machine Learning & Generative AI — Data Security & MLOps",
   email: "subham.t.patro.2005@gmail.com",
   phone: "+91-7440146537",

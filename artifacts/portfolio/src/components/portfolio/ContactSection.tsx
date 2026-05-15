@@ -88,7 +88,7 @@ export function ContactSection() {
               className="text-3xl font-black text-white mb-2"
               style={{ fontFamily: "Orbitron, sans-serif" }}
             >
-              SUBHAM PATRO
+              {PORTFOLIO_DATA.name}
             </div>
             <div className="text-[#00f5ff]/70 text-sm">
               AI/ML Engineer — Open to Enterprise AI Opportunities

@@ -65,7 +65,7 @@ const AGENTS: Agent[] = [
     icon: "◉",
     greeting: "Recruiter AI ready. I have full access to Subham's profile, achievements, and capabilities. What would you like to know?",
     responses: {
-      default: "Accessing talent profile... Subham Patro is a 3rd-year B.Tech CS student at Gitam University with a 8.13 GPA, currently interning at JMR Infotech building the Sense AI BFSI platform.",
+      default: "Accessing talent profile... T Subham Patro is a 3rd-year B.Tech CS student at Gitam University with a 8.13 GPA, currently interning at JMR Infotech building the Sense AI BFSI platform.",
       experience: "Subham has 2 internships: (1) AI Intern at Springer Capital (Feb–May 2026) — built Investment Sentiment Analysis, improved accuracy 10-15%, managed 5+ data pipelines. (2) AI/ML Intern at JMR Infotech (May 2026–present) — building Sense AI BFSI platform, 3+ AI workflows, ~50% deployment time reduction.",
       skills: "Core strengths: LLM engineering (LangChain, LangGraph), ML (PyTorch, TensorFlow, Scikit-learn), MLOps (Docker, K8s, MLflow), Cybersecurity (threat detection, SOC), and full-stack AI app development.",
       projects: "8 production-grade AI projects spanning: RAG systems, network security, PII detection, voice assistants, healthcare AI, customer support agents, and SOC platforms. All deployed and functional.",

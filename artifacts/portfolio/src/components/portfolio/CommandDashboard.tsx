@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 interface Metric {
   label: string;
@@ -86,14 +87,16 @@ export function CommandDashboard() {
     <>
       <motion.button
         onClick={() => setOpen(!open)}
-        className="fixed left-0 top-1/2 -translate-y-1/2 z-30 w-6 h-20 flex items-center justify-center"
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-[46] w-6 h-20 flex items-center justify-center"
+        animate={{ x: open ? 256 : 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
         style={{
           background: "rgba(5,5,8,0.9)",
           border: "1px solid rgba(0,245,255,0.2)",
           borderLeft: "none",
           borderRadius: "0 6px 6px 0",
         }}
-        whileHover={{ x: 2 }}
+        whileHover={{ x: open ? 258 : 2 }}
       >
         <span className="terminal-text text-[#00f5ff]/60" style={{ writingMode: "vertical-rl", fontSize: 8, letterSpacing: 2 }}>
           {open ? "◀" : "▶"}
@@ -107,16 +110,25 @@ export function CommandDashboard() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -280, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed left-0 top-0 bottom-0 z-30 w-64 overflow-hidden"
+            className="fixed left-0 top-0 bottom-0 z-[45] w-64 overflow-hidden"
             style={{
               background: "rgba(5,5,8,0.95)",
               borderRight: "1px solid rgba(0,245,255,0.15)",
               backdropFilter: "blur(20px)",
             }}
           >
-            <div className="p-4 border-b border-[#00f5ff]/10">
-              <div className="terminal-text text-xs text-[#00f5ff] tracking-widest">AI COMMAND CENTER</div>
-              <div className="terminal-text text-[9px] text-white/30 mt-0.5">REAL-TIME TELEMETRY</div>
+            <div className="p-4 border-b border-[#00f5ff]/10 flex items-center justify-between">
+              <div>
+                <div className="terminal-text text-xs text-[#00f5ff] tracking-widest">AI COMMAND CENTER</div>
+                <div className="terminal-text text-[9px] text-white/30 mt-0.5">REAL-TIME TELEMETRY</div>
+              </div>
+              <button
+                onClick={() => setOpen(false)}
+                className="text-white/40 hover:text-[#00f5ff] hover:bg-[#00f5ff]/10 p-1 rounded transition-colors cursor-pointer flex items-center justify-center"
+                aria-label="Close sidebar"
+              >
+                <X size={16} />
+              </button>
             </div>
 
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
