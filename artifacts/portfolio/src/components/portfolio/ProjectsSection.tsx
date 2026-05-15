@@ -2,8 +2,139 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
+const ARCHITECTURES: Record<string, Array<{ label: string; sub?: string; color?: string }[]>> = {
+  "neo-stats": [
+    [{ label: "USER", color: "#00f5ff" }],
+    [{ label: "STREAMLIT UI", sub: "Frontend" }],
+    [{ label: "QUERY PROCESSOR", sub: "Routing" }],
+    [{ label: "ChromaDB", sub: "Vector Store" }, { label: "MEMORY", sub: "Context" }],
+    [{ label: "GPT-4", color: "#00ff88" }, { label: "GROQ", color: "#8b5cf6" }, { label: "GEMINI", color: "#ff8c00" }],
+    [{ label: "AGGREGATOR", sub: "Synthesis" }],
+    [{ label: "RESPONSE", color: "#00f5ff" }],
+  ],
+  "ai-nids": [
+    [{ label: "TRAFFIC CAPTURE", color: "#ff4444" }],
+    [{ label: "FEATURE EXTRACTOR", sub: "44 features" }],
+    [{ label: "RANDOM FOREST", color: "#00ff88" }, { label: "SVM", color: "#8b5cf6" }, { label: "NEURAL NET", color: "#00f5ff" }],
+    [{ label: "ENSEMBLE VOTER", sub: "Weighted" }],
+    [{ label: "ALERT", color: "#ff4444" }, { label: "BLOCK", color: "#ff8c00" }, { label: "LOG", color: "#00f5ff" }],
+  ],
+  "customer-support-agent": [
+    [{ label: "USER INPUT", color: "#8b5cf6" }],
+    [{ label: "LANGGRAPH", sub: "Workflow" }],
+    [{ label: "ROUTER NODE", sub: "Intent" }],
+    [{ label: "KNOWLEDGE BASE" }, { label: "CRM API" }, { label: "GROQ LLM", color: "#8b5cf6" }],
+    [{ label: "RESPONSE GEN", sub: "Synthesis" }],
+    [{ label: "USER RESPONSE", color: "#8b5cf6" }],
+  ],
+  "phis-guard": [
+    [{ label: "URL INPUT", color: "#ff8c00" }],
+    [{ label: "FEATURE ENG", sub: "20+ features" }],
+    [{ label: "ML CLASSIFIER", sub: "Random Forest" }],
+    [{ label: "SAFE", color: "#00ff88" }, { label: "PHISHING", color: "#ff4444" }],
+  ],
+  "pii-detector": [
+    [{ label: "INPUT TEXT", color: "#00e5ff" }],
+    [{ label: "spaCy NLP", sub: "Tokenizer" }],
+    [{ label: "PRESIDIO ENGINE", sub: "Microsoft" }],
+    [{ label: "NAMES" }, { label: "EMAILS" }, { label: "SSNs" }, { label: "PHONES" }],
+    [{ label: "REDACTOR", sub: "Masking" }],
+    [{ label: "CLEAN OUTPUT", color: "#00e5ff" }],
+  ],
+  "nova-assistant": [
+    [{ label: "VOICE INPUT", color: "#00ff88" }],
+    [{ label: "STT ENGINE", sub: "Speech→Text" }],
+    [{ label: "NLU PIPELINE", sub: "Intent/Entity" }],
+    [{ label: "INTENT ROUTER" }],
+    [{ label: "LLM CORE", color: "#00ff88" }, { label: "KNOWLEDGE BASE" }],
+    [{ label: "TTS OUTPUT", sub: "Text→Speech" }],
+  ],
+  "healthcare-agent": [
+    [{ label: "TEXT QUERY", color: "#00ff66" }, { label: "MEDICAL IMAGE" }],
+    [{ label: "MULTIMODAL PROC.", sub: "Vision+Text" }],
+    [{ label: "GROQ LLM", sub: "Inference", color: "#00ff66" }],
+    [{ label: "MEDICAL DB" }, { label: "CLINICAL KB" }],
+    [{ label: "CLINICAL OUTPUT", color: "#00ff66" }],
+  ],
+  "ai-soc": [
+    [{ label: "SECURITY EVENTS", color: "#ff006e" }],
+    [{ label: "COLLECTOR", sub: "Ingest" }],
+    [{ label: "NORMALIZER", sub: "Parse" }],
+    [{ label: "ML ANOMALY ENGINE", sub: "Isolation Forest" }],
+    [{ label: "THREAT DB" }, { label: "CLASSIFIER" }],
+    [{ label: "DASHBOARD" }, { label: "INCIDENT RESP.", color: "#ff006e" }],
+  ],
+};
+
+function ArchitectureView({ projectId, color }: { projectId: string; color: string }) {
+  const arch = ARCHITECTURES[projectId];
+  if (!arch) return (
+    <div className="text-center py-6 terminal-text text-xs text-white/20">Architecture diagram coming soon</div>
+  );
+
+  return (
+    <div className="py-2 overflow-x-auto">
+      <div className="flex items-center gap-2 min-w-max">
+        {arch.map((layer, li) => (
+          <div key={li} className="flex items-center gap-2">
+            <div className="flex flex-col gap-1.5 items-center">
+              {layer.map((node, ni) => (
+                <motion.div
+                  key={ni}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: li * 0.12 + ni * 0.05, duration: 0.3 }}
+                  className="px-2 py-1 rounded text-center"
+                  style={{
+                    background: `${node.color || color}12`,
+                    border: `1px solid ${node.color || color}30`,
+                    minWidth: 72,
+                  }}
+                >
+                  <div className="terminal-text text-[8px] font-bold leading-tight" style={{ color: node.color || color }}>
+                    {node.label}
+                  </div>
+                  {node.sub && (
+                    <div className="terminal-text text-[7px] text-white/30 leading-tight mt-0.5">{node.sub}</div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {li < arch.length - 1 && (
+              <div className="flex flex-col items-center gap-1" style={{ minWidth: 20 }}>
+                {Array.from({ length: Math.max(layer.length, arch[li + 1].length) }).map((_, ai) => (
+                  <motion.div
+                    key={ai}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: li * 0.12 + 0.3 }}
+                    className="flex items-center"
+                    style={{ height: 28 }}
+                  >
+                    <div className="relative h-px w-5 overflow-hidden" style={{ background: `${color}30` }}>
+                      <motion.div
+                        className="absolute inset-0"
+                        style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }}
+                        animate={{ x: ["-100%", "200%"] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: li * 0.3 }}
+                      />
+                    </div>
+                    <div style={{ color: `${color}60`, fontSize: 8 }}>▶</div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProjectCard({ project, index }: { project: typeof PORTFOLIO_DATA.projects[0]; index: number }) {
   const [expanded, setExpanded] = useState(false);
+  const [tab, setTab] = useState<"features" | "arch">("features");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -78,35 +209,66 @@ function ProjectCard({ project, index }: { project: typeof PORTFOLIO_DATA.projec
               className="overflow-hidden"
             >
               <div className="border-t pt-4 mt-2" style={{ borderColor: `${project.color}15` }}>
-                <div className="terminal-text text-[10px] tracking-widest mb-3" style={{ color: `${project.color}60` }}>
-                  CORE FEATURES
-                </div>
-                <div className="grid grid-cols-1 gap-2 mb-4">
-                  {project.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2">
-                      <span className="terminal-text text-xs" style={{ color: project.color }}>▸</span>
-                      <span className="text-white/70 text-xs">{f}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tech.map((t) => (
-                    <span
+                <div
+                  className="flex gap-1 mb-4"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {(["features", "arch"] as const).map((t) => (
+                    <button
                       key={t}
-                      className="terminal-text text-[10px] px-2 py-0.5 rounded border"
-                      style={{ color: `${project.color}80`, borderColor: `${project.color}20`, background: `${project.color}08` }}
+                      onClick={() => setTab(t)}
+                      className="terminal-text text-[9px] px-3 py-1 rounded tracking-widest transition-all"
+                      style={{
+                        background: tab === t ? `${project.color}20` : "transparent",
+                        border: `1px solid ${tab === t ? project.color + "50" : project.color + "15"}`,
+                        color: tab === t ? project.color : `${project.color}50`,
+                      }}
                     >
-                      {t}
-                    </span>
+                      {t === "features" ? "FEATURES" : "ARCHITECTURE"}
+                    </button>
                   ))}
                 </div>
+
+                {tab === "features" && (
+                  <>
+                    <div className="grid grid-cols-1 gap-2 mb-4">
+                      {project.features.map((f) => (
+                        <div key={f} className="flex items-center gap-2">
+                          <span className="terminal-text text-xs" style={{ color: project.color }}>▸</span>
+                          <span className="text-white/70 text-xs">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="terminal-text text-[10px] px-2 py-0.5 rounded border"
+                          style={{ color: `${project.color}80`, borderColor: `${project.color}20`, background: `${project.color}08` }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                {tab === "arch" && (
+                  <div onClick={(e) => e.stopPropagation()}>
+                    <div className="terminal-text text-[9px] text-white/30 tracking-widest mb-3">
+                      LIVE ARCHITECTURE — ANIMATED DATA FLOW
+                    </div>
+                    <ArchitectureView projectId={project.id} color={project.color} />
+                  </div>
+                )}
+
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   data-testid={`link-github-${project.id}`}
-                  className="inline-flex items-center gap-2 terminal-text text-xs px-4 py-2 rounded border transition-all hover:bg-opacity-20"
+                  className="inline-flex items-center gap-2 terminal-text text-xs px-4 py-2 rounded border transition-all hover:bg-opacity-20 mt-2"
                   style={{
                     color: project.color,
                     borderColor: `${project.color}40`,
@@ -167,7 +329,7 @@ export function ProjectsSection() {
             NEURAL <span className="text-[#00f5ff]" style={{ textShadow: "0 0 20px #00f5ff44" }}>NETWORK</span>
           </h2>
           <div className="mt-3 terminal-text text-xs text-white/30 tracking-widest">
-            8 ACTIVE NODES — AI RESEARCH & ENGINEERING PROJECTS
+            {PORTFOLIO_DATA.projects.length} ACTIVE NODES — EXPAND TO VIEW ARCHITECTURE
           </div>
         </motion.div>
 
@@ -201,7 +363,7 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {filtered.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

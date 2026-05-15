@@ -9,10 +9,18 @@ import { AboutSection } from "@/components/portfolio/AboutSection";
 import { CertificationsSection } from "@/components/portfolio/CertificationsSection";
 import { ContactSection } from "@/components/portfolio/ContactSection";
 import { Terminal } from "@/components/portfolio/Terminal";
+import { OSDesktop } from "@/components/portfolio/OSDesktop";
+import { AgentAssistant } from "@/components/portfolio/AgentAssistant";
+import { CommandDashboard } from "@/components/portfolio/CommandDashboard";
+import { NeuralUniverse } from "@/components/portfolio/NeuralUniverse";
+import { MLOpsPipeline } from "@/components/portfolio/MLOpsPipeline";
+import { ThreatSimulation } from "@/components/portfolio/ThreatSimulation";
+import { TelemetrySection } from "@/components/portfolio/TelemetrySection";
 
 export function PortfolioPage() {
   const [booted, setBooted] = useState(false);
   const [terminalOpen, setTerminalOpen] = useState(false);
+  const [osOpen, setOsOpen] = useState(false);
 
   return (
     <>
@@ -22,14 +30,25 @@ export function PortfolioPage() {
         className="min-h-screen bg-[#050508] text-white"
         style={{ opacity: booted ? 1 : 0, transition: "opacity 0.8s ease" }}
       >
-        <Navigation onOpenTerminal={() => setTerminalOpen(true)} />
+        <OSDesktop isOpen={osOpen} onClose={() => setOsOpen(false)} />
+        <CommandDashboard />
+        <AgentAssistant />
+
+        <Navigation
+          onOpenTerminal={() => setTerminalOpen(true)}
+          onOpenOS={() => setOsOpen(true)}
+        />
 
         <main>
           <HeroSection onOpenTerminal={() => setTerminalOpen(true)} />
           <ExperienceSection />
           <ProjectsSection />
+          <NeuralUniverse />
           <SkillsSection />
+          <MLOpsPipeline />
           <AboutSection />
+          <ThreatSimulation />
+          <TelemetrySection />
           <CertificationsSection />
           <ContactSection />
         </main>
