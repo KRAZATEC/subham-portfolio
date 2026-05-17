@@ -44,12 +44,14 @@ const EDGES: Array<[string, string]> = [
 
 const ROWS = 6;
 const COLS = 5;
-const NODE_W = 120;
-const NODE_H = 68;
+const NODE_W = 130;
+const NODE_H = 74;
+const CANVAS_W = 720;
+const CANVAS_H = 540;
 
-function getNodeCenter(node: InfraNode, cW: number, cH: number) {
-  const cellW = cW / COLS;
-  const cellH = cH / ROWS;
+function getNodeCenter(node: InfraNode) {
+  const cellW = CANVAS_W / COLS;
+  const cellH = CANVAS_H / ROWS;
   return {
     cx: node.col * cellW + cellW / 2,
     cy: node.row * cellH + cellH / 2,
@@ -62,19 +64,6 @@ export function ArchitectureReconstruction() {
   const [activeNodes, setActiveNodes] = useState<Set<string>>(new Set());
   const [selectedNode, setSelectedNode] = useState<InfraNode | null>(null);
   const [started, setStarted] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [containerSize, setContainerSize] = useState({ w: 700, h: 520 });
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const obs = new ResizeObserver(() => {
-      setContainerSize({ w: el.clientWidth, h: el.clientHeight });
-    });
-    obs.observe(el);
-    setContainerSize({ w: el.clientWidth, h: el.clientHeight });
-    return () => obs.disconnect();
-  }, []);
 
   useEffect(() => {
     if (inView && !started) {
@@ -110,19 +99,28 @@ export function ArchitectureReconstruction() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main diagram */}
+          {/* Main diagram — scrollable wrapper */}
           <div
-            className="lg:col-span-2 rounded-xl overflow-hidden relative"
-            style={{ background: "#020206", border: "1px solid rgba(255,140,0,0.2)", height: 520 }}
-            ref={containerRef}
+            className="lg:col-span-2 rounded-xl overflow-auto"
+            style={{ background: "#020206", border: "1px solid rgba(255,140,0,0.2)", maxHeight: 540 }}
           >
+            {/* Fixed-size inner canvas so nodes never clip */}
+            <div
+              className="relative"
+              style={{ width: CANVAS_W, height: CANVAS_H, minWidth: CANVAS_W }}
+            >
             {/* SVG edge layer */}
-            <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: "none" }}>
+            <svg
+              className="absolute inset-0"
+              width={CANVAS_W}
+              height={CANVAS_H}
+              style={{ pointerEvents: "none" }}
+            >
               {EDGES.map(([fromId, toId], i) => {
                 const from = INFRA_NODES.find((n) => n.id === fromId)!;
                 const to   = INFRA_NODES.find((n) => n.id === toId)!;
-                const fp   = getNodeCenter(from, containerSize.w, containerSize.h);
-                const tp   = getNodeCenter(to,   containerSize.w, containerSize.h);
+                const fp   = getNodeCenter(from);
+                const tp   = getNodeCenter(to);
                 if (!activeNodes.has(fromId) || !activeNodes.has(toId)) return null;
                 return (
                   <motion.line
@@ -130,8 +128,8 @@ export function ArchitectureReconstruction() {
                     x1={fp.cx} y1={fp.cy}
                     x2={tp.cx} y2={tp.cy}
                     stroke={from.color}
-                    strokeWidth={1}
-                    strokeOpacity={0.3}
+                    strokeWidth={1.5}
+                    strokeOpacity={0.35}
                     initial={{ pathLength: 0, opacity: 0 }}
                     animate={{ pathLength: 1, opacity: 1 }}
                     transition={{ duration: 0.6 }}
@@ -142,7 +140,7 @@ export function ArchitectureReconstruction() {
 
             {/* Node boxes */}
             {INFRA_NODES.map((node) => {
-              const { cx, cy } = getNodeCenter(node, containerSize.w, containerSize.h);
+              const { cx, cy } = getNodeCenter(node);
               const isActive   = activeNodes.has(node.id);
               const isSelected = selectedNode?.id === node.id;
               return (
@@ -205,7 +203,8 @@ export function ArchitectureReconstruction() {
             <div className="absolute bottom-2.5 left-3 terminal-text text-[8px] text-white/20">
               {activeNodes.size}/{INFRA_NODES.length} COMPONENTS DEPLOYED
             </div>
-          </div>
+            </div>{/* end inner fixed canvas */}
+          </div>{/* end scrollable wrapper */}
 
           {/* Side panel */}
           <div className="space-y-4">
