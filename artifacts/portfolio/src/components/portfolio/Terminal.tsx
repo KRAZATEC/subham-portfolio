@@ -128,7 +128,7 @@ function getCommandOutput(cmd: string): TerminalLine[] {
     return [{ type: "output", content: HELP_TEXT }];
   }
   if (trimmed === "about") {
-    return [{ type: "success", content: `SYSTEM PROFILE — SUBHAM PATRO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nRole     : AI/ML Engineer | Generative AI | MLOps | Cybersecurity\nStatus   : ACTIVE — JMR Infotech (BFSI AI, Sense AI Platform)\nLocation : Bengaluru, Karnataka, India\nGitHub   : github.com/KRAZATEC\nLinkedIn : linkedin.com/in/krazatec\nEmail    : subham.t.patro.2005@gmail.com\n\nBuilding enterprise-grade AI systems at the intersection of\nmachine learning, generative AI, MLOps, and cybersecurity.` }];
+    return [{ type: "success", content: `SYSTEM PROFILE — ${PORTFOLIO_DATA.name}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nRole     : AI/ML Engineer | Generative AI | MLOps | Cybersecurity\nStatus   : ACTIVE — JMR Infotech (BFSI AI, Sense AI Platform)\nLocation : Bengaluru, Karnataka, India\nGitHub   : github.com/KRAZATEC\nLinkedIn : linkedin.com/in/krazatec\nEmail    : subham.t.patro.2005@gmail.com\n\nBuilding enterprise-grade AI systems at the intersection of\nmachine learning, generative AI, MLOps, and cybersecurity.` }];
   }
   if (trimmed === "clear") {
     return [{ type: "system", content: "__CLEAR__" }];
