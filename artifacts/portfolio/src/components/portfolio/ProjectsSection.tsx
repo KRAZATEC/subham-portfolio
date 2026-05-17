@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
+import { ProjectWorldModal } from "@/components/portfolio/ProjectWorldModal";
 
 const ARCHITECTURES: Record<string, Array<{ label: string; sub?: string; color?: string }[]>> = {
   "neo-stats": [
@@ -132,7 +133,7 @@ function ArchitectureView({ projectId, color }: { projectId: string; color: stri
   );
 }
 
-function ProjectCard({ project, index }: { project: typeof PORTFOLIO_DATA.projects[0]; index: number }) {
+function ProjectCard({ project, index, onOpenWorld }: { project: typeof PORTFOLIO_DATA.projects[0]; index: number; onOpenWorld: (id: string) => void }) {
   const [expanded, setExpanded] = useState(false);
   const [tab, setTab] = useState<"features" | "arch">("features");
   const ref = useRef(null);
@@ -171,14 +172,28 @@ function ProjectCard({ project, index }: { project: typeof PORTFOLIO_DATA.projec
             </h3>
             <div className="text-white/50 text-xs mt-0.5">{project.tagline}</div>
           </div>
-          <div
-            className="w-10 h-10 rounded-full border flex items-center justify-center shrink-0 animate-pulse-cyan"
-            style={{ borderColor: `${project.color}40`, background: `${project.color}10` }}
-          >
+          <div className="flex flex-col items-end gap-2 shrink-0">
+            <button
+              onClick={(e) => { e.stopPropagation(); onOpenWorld(project.id); }}
+              className="terminal-text text-[8px] px-2 py-1 rounded tracking-widest transition-all hover:opacity-100"
+              style={{
+                background: `${project.color}15`,
+                border: `1px solid ${project.color}40`,
+                color: project.color,
+                opacity: 0.7,
+              }}
+            >
+              ⬡ WORLD
+            </button>
             <div
-              className="w-3 h-3 rounded-full"
-              style={{ background: project.color, boxShadow: `0 0 10px ${project.color}` }}
-            />
+              className="w-8 h-8 rounded-full border flex items-center justify-center animate-pulse-cyan"
+              style={{ borderColor: `${project.color}40`, background: `${project.color}10` }}
+            >
+              <div
+                className="w-2.5 h-2.5 rounded-full"
+                style={{ background: project.color, boxShadow: `0 0 10px ${project.color}` }}
+              />
+            </div>
           </div>
         </div>
 
@@ -303,6 +318,7 @@ export function ProjectsSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [filter, setFilter] = useState<string | null>(null);
+  const [worldProject, setWorldProject] = useState<string | null>(null);
 
   const categories = Array.from(new Set(PORTFOLIO_DATA.projects.map((p) => p.category)));
   const filtered = filter ? PORTFOLIO_DATA.projects.filter((p) => p.category === filter) : PORTFOLIO_DATA.projects;
@@ -365,10 +381,12 @@ export function ProjectsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {filtered.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <ProjectCard key={project.id} project={project} index={i} onOpenWorld={setWorldProject} />
           ))}
         </div>
       </div>
+
+      <ProjectWorldModal projectId={worldProject} onClose={() => setWorldProject(null)} />
     </section>
   );
 }

@@ -16,6 +16,14 @@ import { NeuralUniverse } from "@/components/portfolio/NeuralUniverse";
 import { MLOpsPipeline } from "@/components/portfolio/MLOpsPipeline";
 import { ThreatSimulation } from "@/components/portfolio/ThreatSimulation";
 import { TelemetrySection } from "@/components/portfolio/TelemetrySection";
+import { LLMOrchestrator } from "@/components/portfolio/LLMOrchestrator";
+import { GlobalNetworkMap } from "@/components/portfolio/GlobalNetworkMap";
+import { SelfAwarenessEngine } from "@/components/portfolio/SelfAwarenessEngine";
+import { AIMoodProvider } from "@/components/portfolio/AIMoodEngine";
+import { IntelligenceFeed } from "@/components/portfolio/IntelligenceFeed";
+import { RecruiterAnalysis } from "@/components/portfolio/RecruiterAnalysis";
+import { DeveloperDNA } from "@/components/portfolio/DeveloperDNA";
+import { ArchitectureReconstruction } from "@/components/portfolio/ArchitectureReconstruction";
 
 export function PortfolioPage() {
   const [booted, setBooted] = useState(false);
@@ -23,7 +31,7 @@ export function PortfolioPage() {
   const [osOpen, setOsOpen] = useState(false);
 
   return (
-    <>
+    <AIMoodProvider>
       {!booted && <BootScreen onComplete={() => setBooted(true)} />}
 
       <div
@@ -33,6 +41,7 @@ export function PortfolioPage() {
         <OSDesktop isOpen={osOpen} onClose={() => setOsOpen(false)} />
         <CommandDashboard />
         <AgentAssistant />
+        <SelfAwarenessEngine />
 
         <Navigation
           onOpenTerminal={() => setTerminalOpen(true)}
@@ -45,16 +54,22 @@ export function PortfolioPage() {
           <ProjectsSection />
           <NeuralUniverse />
           <SkillsSection />
+          <LLMOrchestrator />
           <MLOpsPipeline />
           <AboutSection />
           <ThreatSimulation />
           <TelemetrySection />
+          <GlobalNetworkMap />
+          <IntelligenceFeed />
+          <ArchitectureReconstruction />
+          <RecruiterAnalysis />
+          <DeveloperDNA />
           <CertificationsSection />
           <ContactSection />
         </main>
 
         <Terminal isOpen={terminalOpen} onClose={() => setTerminalOpen(false)} />
       </div>
-    </>
+    </AIMoodProvider>
   );
 }
