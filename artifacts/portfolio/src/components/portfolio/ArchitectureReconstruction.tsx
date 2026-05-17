@@ -113,7 +113,7 @@ export function ArchitectureReconstruction() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div
             className="lg:col-span-2 rounded-lg overflow-hidden relative"
-            style={{ background: "#020206", border: "1px solid rgba(255,140,0,0.2)", height: 400 }}
+            style={{ background: "#020206", border: "1px solid rgba(255,140,0,0.2)", height: 510 }}
             ref={containerRef}
           >
             <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: "none" }}>

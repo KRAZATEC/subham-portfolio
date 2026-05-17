@@ -107,16 +107,27 @@ export function CommandDashboard() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -280, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed left-0 top-0 bottom-0 z-30 w-64 overflow-hidden"
+            className="fixed left-0 bottom-0 z-30 w-64 overflow-hidden"
             style={{
-              background: "rgba(5,5,8,0.95)",
+              top: 64,
+              background: "rgba(5,5,8,0.97)",
               borderRight: "1px solid rgba(0,245,255,0.15)",
+              borderTop: "1px solid rgba(0,245,255,0.1)",
               backdropFilter: "blur(20px)",
             }}
           >
-            <div className="p-4 border-b border-[#00f5ff]/10">
-              <div className="terminal-text text-xs text-[#00f5ff] tracking-widest">AI COMMAND CENTER</div>
-              <div className="terminal-text text-[9px] text-white/30 mt-0.5">REAL-TIME TELEMETRY</div>
+            <div className="p-4 border-b border-[#00f5ff]/10 flex items-start justify-between">
+              <div>
+                <div className="terminal-text text-xs text-[#00f5ff] tracking-widest">AI COMMAND CENTER</div>
+                <div className="terminal-text text-[9px] text-white/30 mt-0.5">REAL-TIME TELEMETRY</div>
+              </div>
+              <button
+                onClick={() => setOpen(false)}
+                className="terminal-text text-[11px] text-white/30 hover:text-white/70 transition-colors leading-none mt-0.5"
+                aria-label="Close dashboard"
+              >
+                ✕
+              </button>
             </div>
 
             <div className="absolute inset-0 pointer-events-none overflow-hidden">

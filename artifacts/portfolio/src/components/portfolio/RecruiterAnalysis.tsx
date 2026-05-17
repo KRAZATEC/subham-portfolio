@@ -27,7 +27,7 @@ const SCAN_SEQUENCE = [
   "Evaluating enterprise readiness indicators...",
   "Running internship impact assessment...",
   "Generating capability matrix...",
-  "ANALYSIS COMPLETE — Candidate: SUBHAM PATRO",
+  "ANALYSIS COMPLETE — Candidate: T SUBHAM PATRO",
 ];
 
 const STRENGTHS = [
